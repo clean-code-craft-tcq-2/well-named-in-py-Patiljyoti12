@@ -1,17 +1,19 @@
-import number_to_pair
-import pair_to_number
+import color_code_conversion
 
-MAJOR_COLORS = ['White', 'Red', 'Black', 'Yellow', 'Violet']
-MINOR_COLORS = ["Blue", "Orange", "Green", "Brown", "Slate"]
+def test_pair_to_number(major_color, minor_color, expected_pair_number):
+  pair_number = color_code_conversion.get_pair_number_from_color(major_color, minor_color)
+  assert(pair_number == expected_pair_number)
+  
+def test_number_to_pair(pair_number,expected_major_color, expected_minor_color):
+  major_color, minor_color = color_code_conversion.get_color_from_pair_number(pair_number)
+  assert(major_color == expected_major_color)
+  assert(minor_color == expected_minor_color)
 
-
-def color_pair_to_string(major_color, minor_color):
-  return f'{major_color} {minor_color}'
 
 if __name__ == '__main__':
-  number_to_pair.test_number_to_pair(4, 'White', 'Brown')
-  number_to_pair.test_number_to_pair(5, 'White', 'Slate')
-  pair_to_number.test_pair_to_number('Black', 'Orange', 12)
-  pair_to_number.test_pair_to_number('Violet', 'Slate', 25)
-  pair_to_number.test_pair_to_number('Red', 'Orange', 7)
+  test_number_to_pair(4, 'White', 'Brown')
+  test_number_to_pair(5, 'White', 'Slate')
+  test_pair_to_number('Black', 'Orange', 12)
+  test_pair_to_number('Violet', 'Slate', 25)
+  test_pair_to_number('Red', 'Orange', 7)
   print('Done :)')
