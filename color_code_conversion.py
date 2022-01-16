@@ -25,3 +25,10 @@ def get_pair_number_from_color(major_color, minor_color):
     raise Exception('Minor index out of range')
   return major_index * len(MINOR_COLORS) + minor_index + 1
 
+def get_color_code_manual():
+    Pair_Number = 1
+    print('{:<13} {:<13} {:<13} \n'.format('Pair_Number', 'Major Color', 'Minor Color'))
+    for major_color in MAJOR_COLORS:
+        for minor_color in MINOR_COLORS:
+            print('{:<13} {:<13} {:<13}\n'.format(Pair_Number,major_color, minor_color))
+            Pair_Number += 1
